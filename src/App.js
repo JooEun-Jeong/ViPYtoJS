@@ -256,6 +256,19 @@ function App() {
       console.log(req.data);
       setInfoDict(req.data);
       console.log("hello");
+      
+      let dataProcessed = getInfo(infoDict);
+      visualizationInfo = visualization(dataProcessed);
+      console.log("this is from changed");
+      //data
+      let vData = visualizationInfo.Gdata;
+      //Layout
+      let vLayout = visualizationInfo.Glayout;
+
+      setData(vData);
+      setLayout(vLayout);
+      setMode("READ");
+      // setChanged(false);
     } catch (e) {
       console.log(e);
     }
@@ -278,25 +291,24 @@ function App() {
             } catch {
               try {
                 myRequest(nctId);
-                setChanged(true);
               } catch {
                 console.log("error");
               }
             }
             // console.log(changed)
-            if (changed) {
-              let dataProcessed = getInfo(infoDict);
-              visualizationInfo = visualization(dataProcessed);
-              //data
-              let vData = visualizationInfo.Gdata;
-              //Layout
-              let vLayout = visualizationInfo.Glayout;
+            // if (changed) {
+            //   let dataProcessed = getInfo(infoDict);
+            //   visualizationInfo = visualization(dataProcessed);
+            //   //data
+            //   let vData = visualizationInfo.Gdata;
+            //   //Layout
+            //   let vLayout = visualizationInfo.Glayout;
 
-              setData(vData);
-              setLayout(vLayout);
-              setMode("READ");
-              setChanged(false);
-            }
+            //   setData(vData);
+            //   setLayout(vLayout);
+            //   setMode("READ");
+            //   setChanged(false);
+            // }
           }}
         ></Search>
       </div>
