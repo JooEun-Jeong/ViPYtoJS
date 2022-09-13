@@ -7,8 +7,8 @@ function Search({ onCreate }) {
   const handleNctIdChange = (e) => {
     setNctId(e.target.value);
   }
-
   const handleSubmit = (e) => {
+    // console.log(e.target.url.value);
     e.preventDefault();
     onCreate(e.target.url.value);
   }
